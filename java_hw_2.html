@@ -1,0 +1,150 @@
+/* РАБОТА  С МЯЧОМ
+
+В приведённом ниже примере, когда мяч 
+перетаскивается через футбольные 
+ворота, ворота подсвечиваются. */
+
+/*<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style_2.css">
+</head>
+
+<body>
+
+  <p>Перетащите мяч.</p>
+
+  <img src="https://en.js.cx/clipart/soccer-gate.svg" id="gate" class="droppable">
+
+  <img src="https://en.js.cx/clipart/ball.svg" id="ball">
+
+  <script>
+    let currentDroppable = null;
+
+    ball.onmousedown = function(event) {
+
+      let shiftX = event.clientX - ball.getBoundingClientRect().left;
+      let shiftY = event.clientY - ball.getBoundingClientRect().top;
+
+      ball.style.position = 'absolute';
+      ball.style.zIndex = 1000;
+      document.body.append(ball);
+
+      moveAt(event.pageX, event.pageY);
+
+      function moveAt(pageX, pageY) {
+        ball.style.left = pageX - shiftX + 'px';
+        ball.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+
+        ball.hidden = true;
+        let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+        ball.hidden = false;
+
+        if (!elemBelow) return;
+
+        let droppableBelow = elemBelow.closest('.droppable');
+        if (currentDroppable != droppableBelow) {
+          if (currentDroppable) { // null если мы были не над droppable до этого события
+            // (например, над пустым пространством)
+            leaveDroppable(currentDroppable);
+          }
+          currentDroppable = droppableBelow;
+          if (currentDroppable) { // null если мы не над droppable сейчас, во время этого события
+            // (например, только что покинули droppable)
+            enterDroppable(currentDroppable);
+          }
+        }
+      }
+
+      document.addEventListener('mousemove', onMouseMove);
+
+      ball.onmouseup = function() {
+        document.removeEventListener('mousemove', onMouseMove);
+        ball.onmouseup = null;
+      };
+
+    };
+
+    function enterDroppable(elem) {
+      elem.style.background = 'pink';
+    }
+
+    function leaveDroppable(elem) {
+      elem.style.background = '';
+    }
+
+    ball.ondragstart = function() {
+      return false;
+    };
+  </script>
+
+
+</body>
+</html> */
+----------------------------------------------
+/* примеры */
+
+Создайте слайдер:
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Document </title>
+</head>
+
+{/* <div id="slider" class="slider">
+<div class="thumb"></div>
+</div>
+
+<script>
+let thumb = slider.querySelector('.thumb');
+
+thumb.onmousedown = function(event) {
+  event.preventDefault(); // предотвратить запуск выделения (действие браузера)
+
+  let shiftX = event.clientX - thumb.getBoundingClientRect().left;
+  // shiftY здесь не нужен, слайдер двигается только по горизонтали
+
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mouseup', onMouseUp);
+
+  function onMouseMove(event) {
+    let newLeft = event.clientX - shiftX - slider.getBoundingClientRect().left;
+
+    // курсор вышел из слайдера => оставить бегунок в его границах.
+    if (newLeft < 0) {
+      newLeft = 0;
+    }
+    let rightEdge = slider.offsetWidth - thumb.offsetWidth;
+    if (newLeft > rightEdge) {
+      newLeft = rightEdge;
+    }
+
+    thumb.style.left = newLeft + 'px';
+  }
+
+  function onMouseUp() {
+    document.removeEventListener('mouseup', onMouseUp);
+    document.removeEventListener('mousemove', onMouseMove);
+  }
+
+};
+
+thumb.ondragstart = function() {
+  return false;
+};
+
+</script>
+
+</body>
+</html> */}
+
+------------------------------------
